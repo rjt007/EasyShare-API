@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const cors = require('cors');
+const cron = require('node-cron');
 
 const filesRoute = require('./routes/files');
 const downloadsRoute = require('./routes/downloads');
@@ -35,6 +36,12 @@ app.get('/',(req,res)=>{
 app.use('/api/files',filesRoute);
 app.use('/downloads',downloadsRoute);
 app.use('/downloads/save',saveRoute);
+
+//Running the script.js at 2AM Everday
+const deleteFiles = require('./script');
+cron.schedule('0 2 * * *', () => {
+  deleteFiles();
+});
 
 //Databse Configuration
 const connectDB = require('./config/db');

@@ -24,4 +24,5 @@ async function deleteFiles(){
     }
 }
 
-deleteFiles().then(process.exit);
+module.exports = deleteFiles;
+
