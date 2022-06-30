@@ -1,35 +1,57 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap');
-
 *{
   font-family: 'Ubuntu', sans-serif;
 }
+body {
+  margin: 0;
+  background-color: #e8e5f4;
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
 
-:root {
-    /* --main-bg-color: #edf5fe; */
+.cir{
+  height: 400px;
+  width:520px;
+  background-color:#efaa86;
+  border-radius: 700px/500px;
+  transform: rotate(15deg);
+  position: absolute;
+  margin-left:-80vw;
+  margin-top:-50vh;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.cird{
+  position: absolute;
+  height: 400px;
+  width:550px;
+  background-color:#3dc5b7;
+  border-radius: 700px/500px;
+  margin-left:80vw;
+  margin-top:105vh;
+  margin-right: 18vw;
+  overflow: hidden;
+  z-index: -1;
+}
+
+  :root {
     --main-bg-color: rgb(255, 255, 255);
     --light-blue: #03a9f4;
     --dark-blue: #028bca;
   }
+.logo {
+  position: absolute;
+  top: 5px;
+  right:10px;
+  width: 120px;
+  border-radius: 40px;
+}
 
-  body {
-    font-family: system-ui;
-    background: var(--main-bg-color);
-    height: 98vh;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #333;
-  }
-
-  .logo {
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    width:135px;
-  }
 section.download {
-    /* background: #fff; */
     background: rgb(58, 209, 215);
     width: 430px;
     max-width: 90%;
@@ -37,10 +59,11 @@ section.download {
     box-shadow: 0px 20px 20px 0px #00000017;
     padding: 2rem;
     text-align: center;
+    z-index: 5;
 }
 .download__icon {
-    height: 6rem;
-    width:6rem;
+    height: 4rem;
+    width:4rem;
 }
 .download__meta h4 {
     margin-bottom: 0;
@@ -51,7 +74,6 @@ section.download {
     font-size: 20px;
     padding: 8px 40px;
     margin-top: 15px;
-    /* background: var(--light-blue); */
     background: rgb(44, 93, 228);
     text-decoration: none;
     border: none;
@@ -63,4 +85,15 @@ section.download {
 
   .send-btn-container a:hover {
       background: var(--dark-blue);
+  }
+
+  @media screen and (max-width: 700px){
+    .logo{
+      display: none;
+    }
+  }
+  @media screen and (max-height: 500px){
+    body{
+      overflow: scroll;
+    }
   }
